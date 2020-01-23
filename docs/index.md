@@ -3,16 +3,22 @@
 This is a wiki-blog created by Xidian University, for studying and shareing forensics tricks using.
 这里是西安电子科技大学电子数据取证Wiki，学习、分享电子数据取证的技巧与方法
 
-## Commands
+## Forensics
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+**·**电子数据取证从实战出发，学习与实践规律相结合，技术和法律并重。
 
-## Project layout
+**·**电子数据取证包括并不限于**Windows**、**MacOS**、**UNIX/Linux**、**移动终端**、**网络数据取证**的基本知识和**取证技术**、电子数据取证的相关**法律规则**和**标准**等等；同时以实战出发，对于电子数据现场勘验、鉴定和检验、实验室建设与认可等进行深入阐述，最后辅以**真实案例**，提出各种网络案件的**取证思路**和过程。
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+**·**电子数据取证目的是**培养电子数据取证的能力**。
+
+## 往届赛事
+
+    2019“虎鲸杯”全国大学生电子数据取证比赛
+	2019“长安杯”电子数据取证竞赛
+    2019“美亚杯”第五届中国电子数据取证大赛
+	
+##Join us
+
+西电电子数据取证校内交流QQ群：857172003
+
+西电电子数据取证实验室地址：图书馆B区465
