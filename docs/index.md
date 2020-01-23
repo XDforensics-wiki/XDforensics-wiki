@@ -1,6 +1,7 @@
-# Welcome to MkDocs
+# Welcome to XDforensics-wiki
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+This is a wiki-blog created by Xidian University, for studying and shareing forensics tricks using.
+这里是西安电子科技大学电子数据取证Wiki，学习、分享电子数据取证的技巧与方法
 
 ## Commands
 
