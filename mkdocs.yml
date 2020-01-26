@@ -1,7 +1,14 @@
 site_name: XDforensics-Wiki
 nav:
     - About: index.md
+    - Laws and Regulations :
     - Preparation: preparation.md
+    - RAM Analysis :
+    - Windows:
+    - Linux :
+    - MacOS :
+    - Mobile Devices :
+    - Packet Analysis :
 theme:
   name: 'material'
 markdown_extensions:
