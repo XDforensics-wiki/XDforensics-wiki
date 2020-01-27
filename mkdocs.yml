@@ -1,4 +1,7 @@
 site_name: XDforensics-Wiki
+extra:
+  search:
+    language: 'jp'
 nav:
     - About: index.md
     - Laws and Regulations : law.md
@@ -11,6 +14,9 @@ nav:
     - Packet Analysis : pac.md
 theme:
   name: 'material'
+  feature:
+    tabs: true
+  language: 'zh'
 markdown_extensions:
   - admonition
   - codehilite:
