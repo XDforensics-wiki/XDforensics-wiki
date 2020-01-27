@@ -4,14 +4,15 @@ extra:
     language: 'jp'
 nav:
     - About: index.md
-    - Laws and Regulations : law.md
-    - Preparation: preparation.md
-    - RAM Analysis : ram.md
-    - Windows: win.md
-    - Linux : linux.md
-    - MacOS : mac.md
-    - Mobile Devices : mobile.md
-    - Packet Analysis : pac.md
+        - Laws and Regulations : law.md
+        - Preparation: preparation.md
+    - Classification : index2.md
+        - RAM Analysis : ram.md
+        - Windows: win.md
+        - Linux : linux.md
+        - MacOS : mac.md
+        - Mobile Devices : mobile.md
+        - Packet Analysis : pac.md
 theme:
   name: 'material'
   feature:
