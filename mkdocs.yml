@@ -3,10 +3,11 @@ extra:
   search:
     language: 'jp'
 nav:
-    - About: index.md
+    - Welcome :
+        - About : index.md
         - Laws and Regulations : law.md
-        - Preparation: preparation.md
-    - Classification : index2.md
+        - Preparation : preparation.md
+    - Classification : 
         - RAM Analysis : ram.md
         - Windows: win.md
         - Linux : linux.md
