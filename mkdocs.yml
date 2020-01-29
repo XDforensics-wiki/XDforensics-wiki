@@ -8,7 +8,8 @@ nav:
         - Laws and Regulations : law.md
         - Preparation : preparation.md
     - Classification : 
-        - RAM Analysis : ram.md
+        - RAM Analysis :
+            -内存取证原理学习及Volatility - 篇一 : ram.md
         - Windows: win.md
         - Linux : linux.md
         - MacOS : mac.md
