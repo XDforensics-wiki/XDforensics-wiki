@@ -10,6 +10,7 @@ nav:
     - Classification : 
         - RAM Analysis :
             -内存取证原理学习及Volatility - 篇一 : ram.md
+            -内存取证原理学习及Volatility - 篇二 : ram2.md
         - Windows: win.md
         - Linux : linux.md
         - MacOS : mac.md
