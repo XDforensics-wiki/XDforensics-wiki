@@ -354,10 +354,34 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../linux/" title="Linux" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
       Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Linux1/" title="-Linux系统基础" class="md-nav__link">
+      -Linux系统基础
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -399,9 +423,99 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Packet Analysis
+      </label>
+    
     <a href="./" title="Packet Analysis" class="md-nav__link md-nav__link--active">
       Packet Analysis
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wireshark" class="md-nav__link">
+    Wireshark使用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数据包筛选
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据包搜索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据包还原
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据提取
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    第五届美亚杯题解
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    题目：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    解析：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -428,6 +542,83 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wireshark" class="md-nav__link">
+    Wireshark使用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数据包筛选
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据包搜索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据包还原
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据提取
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    第五届美亚杯题解
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    题目：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    解析：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -440,6 +631,60 @@
                 
                 
                 <h1 id="packet-analysis">Packet Analysis<a class="headerlink" href="#packet-analysis" title="Permanent link">&para;</a></h1>
+<p>网络流量分析是指捕捉网络中流动的数据包，并通过查看包内部数据以及进行相关的协议、流量分析、统计等来发现网络运行过程中出现的问题。</p>
+<p>在应急响应与日常运维中都是至关重要的步骤。</p>
+<p>对于取证分析，在<a href="https://wiki.x10sec.org/misc/traffic/introduction/">CTF中的流量包分析</a>中有一些简单的介绍。二者基本上类似，不过在CTF中对数据包的分析比较注重细节和较高难度的处理；在美亚杯的比赛中更注重流量包的行为和结果，从而对其他镜像的分析结果进行佐证。</p>
+<h2 id="wireshark">Wireshark使用<a class="headerlink" href="#wireshark" title="Permanent link">&para;</a></h2>
+<p>pcap流量包的分析通常都是通过图形化的网络嗅探器——Wireshark进行的，这款嗅探器经过众多开发者的不断完善，现在已经成为了使用最为广泛的安全工具之一。</p>
+<p>Wireshark的基本使用分为数据包筛选、数据包搜索、数据包还原、数据提取四个部分。</p>
+<h4 id="_1">数据包筛选<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<p>数据包筛选功能是Wireshark的核心功能，比如需要筛选出特定的协议如HTTP，Telnet等，也可能需要筛选出ip地址，端口等。</p>
+<h4 id="_2">数据包搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>在Wireshark界面按“Ctrl+F”，可以进行关键字搜索。Wireshark的搜索功能支持正则表达式、字符串、十六进制等方式进行搜索，通常情况下直接使用字符串方式进行搜索。</p>
+<h4 id="_3">数据包还原<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>在Wireshark中，存在一个交追踪流的功能，可以将HTTP或TCP流量集合在一起并还原成原始数据，具体操作方式：选中想要还原的流量包，右键选中，选择追踪流 – TCP流/UPD流/SSL流/HTTP流。</p>
+<h4 id="_4">数据提取<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>Wireshark支持提取通过http传输（上传/下载）的文件内容，方法：选中http文件传输流量包，在分组详情中找到data或者Line-based text data:text/html层，鼠标右键点击 – 选中 导出分组字节流。</p>
+<h2 id="_5">第五届美亚杯题解<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h4 id="_6">题目：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki4.png" /></p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki2.png" /></p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki3.png" /></p>
+<h4 id="_7">解析：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>106、文件的MD5值：</p>
+<p>这是美亚杯一个特点，疯狂求各种文件的MD5值。</p>
+<p>Windows终端命令如下：</p>
+<blockquote>
+<p>certutil -hashfile filename MD5/SHA1/SHA256</p>
+</blockquote>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki1.png" /></p>
+<p>不过此题出了一些问题，跟答案对不上，最终作废了。</p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki5.png" /></p>
+<p>107、Dos攻击：</p>
+<p>从很多地方可以看出来攻击方式：</p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki6.png" /></p>
+<p><a href="https://github.com/shekyan/slowhttptest">Slowhttptest</a>是依赖HTTP协议的慢速攻击DoS攻击工具，设计的基本原理是服务器在请求完全接收后才会进行处理，如果客户端的发送速度缓慢或者发送不完整，服务端为其保留连接资源池占用，大量此类请求并发将导致DoS。</p>
+<p>108、抓包时间：</p>
+<p>按时间排序后，查看最后一个包的Arrival Time。</p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki7.png" /></p>
+<p>109、目标地址：</p>
+<p>在107、中的图中可以看到Host信息，包括了发送的目的域名和端口号。</p>
+<p>110、目标IP：</p>
+<p>域名正确后，直接看建立连接的Destination。</p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki8.png" /></p>
+<p>111、协议统计：</p>
+<p>利用Wireshark的统计功能：统计 → 协议分级 得出HTTP占0.3%</p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki9.png" /></p>
+<p>112、数据包个数：</p>
+<p>比较简单，参照108、最下方包的序号。</p>
+<p>根据下图解决最后两题：</p>
+<p><img alt="avatar" src="https://k1ng0fic3.github.io/images/w1ki10.png" /></p>
+<p>115、协议认定：</p>
+<p>通过111、协议统计，HTTP的包只占了0.3%，不足以实现Slow HTTP Attack。故很明确被识别成了上层的TCP。</p>
+<p>116、数据包信息：</p>
+<p>根据Slow HTTP Attack模式中的Slow Header：</p>
+<p>HTTP Header以两个CLRF结尾，通过发送只包含一个CLRF的畸形Header请求，占用Web服务器连接，消耗掉所有的连接数，而造成Web服务器拒绝新的服务。</p>
+<p>也就是正常情况下的两个\r\n，现在只发了一个，来实现攻击。</p>
                 
                   
                 

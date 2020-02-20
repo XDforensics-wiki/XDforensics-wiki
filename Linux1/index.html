@@ -36,7 +36,7 @@
     
     
       
-        <title>Linux - XDforensics-Wiki</title>
+        <title>-Linux系统基础 - XDforensics-Wiki</title>
       
     
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Linux
+                -Linux系统基础
               
             </span>
           
@@ -356,6 +356,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -363,10 +384,15 @@
       
     
     
-    <a href="./" title="Linux" class="md-nav__link md-nav__link--active">
-      Linux
+    <a href="./" title="-Linux系统基础" class="md-nav__link md-nav__link--active">
+      -Linux系统基础
     </a>
     
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -440,6 +466,187 @@
                 
                 
                 <h1 id="linux-analysis">Linux Analysis<a class="headerlink" href="#linux-analysis" title="Permanent link">&para;</a></h1>
+<p>文档侧重于以电子数据取证为目的的Linux 系统解析，主要包含Linux 文件系统目录、特殊的系统文件、常用软件的目录、文件与功能等，可能不会介绍Linux 开发的相关内容。</p>
+<h1 id="linux">一、常见的Linux 发行版<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<p>DebianOS，以及其衍生版本：Ubuntu、LinuxMint、Deepin、Kali Linux</p>
+<p>Redhat，以及其衍生版本：CentOS、Fedora</p>
+<p>其他：Archlinux 等</p>
+<p><strong>查看当前的Linux 发行版版本：</strong></p>
+<p>lsb_release ：</p>
+<p><code>lsb_release -a</code></p>
+<p>uname ：</p>
+<p><code>uname -a</code></p>
+<p>查找\etc 中的文件：</p>
+<p>对于Debian 及其衍生版：
+<code>cat \etc\issue
+cat \etc\issue.net
+cat \etc\lsb-release
+cat \etc\os-release</code></p>
+<p>对于CentOS：
+<code>cat \etc\centos-release</code>
+对于Fedora：
+<code>cat \etc\fedora-release</code></p>
+<h1 id="linux-dir-structure">二、Linux 系统的典型目录结构（Dir Structure）<a class="headerlink" href="#linux-dir-structure" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>根目录，根目录下一般只有以下文件夹，没有文件|</td>
+</tr>
+<tr>
+<td>/bin</td>
+<td>存放了系统命令的可执行文件，例如cat、vi，相当于Windows 的系统环境变量PATH</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>存放了系统配置，例如release</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>用户文件夹，例如/home/user1 ，/home/user2</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>存放了用户应用的可执行文件、代码、动态链接库等，相当于Windows 的用户环境变量PATH</td>
+</tr>
+<tr>
+<td>/usr/bin</td>
+<td>用户安装的应用的可执行文件</td>
+</tr>
+<tr>
+<td>/usr/doc</td>
+<td>Linux 文档</td>
+</tr>
+<tr>
+<td>/usr/include</td>
+<td>头文件目录</td>
+</tr>
+<tr>
+<td>/usr/lib</td>
+<td>存放动态链接库、软件包配置文件</td>
+</tr>
+<tr>
+<td>/usr/man</td>
+<td>执行man命令显示的帮助文档</td>
+</tr>
+<tr>
+<td>/usr/src</td>
+<td>源代码，例如Linux内核源码: /usr/src/linux</td>
+</tr>
+<tr>
+<td>/usr/local</td>
+<td>本机单独增加的命令、动态链接库</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>root用户的用户文件夹被单独拿出来放到root目录里，不在usr目录里</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>可选应用程序的安装目录</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>存放设备文件（分字符设备和块设备）</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>系统引导</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>存放跟文件系统中的程序运行所需要的共享库及内核模块。共享库又叫动态链接共享库，作用类似windows里的.dll文件，存放了根文件系统程序运行所需的共享文件</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>临时文件夹</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>日志</td>
+</tr>
+<tr>
+<td>/lost+found</td>
+<td>意外丢失的文件</td>
+</tr>
+<tr>
+<td>/proc</td>
+<td>虚假的目录，磁盘中并不存在，其中的内容是系统映射出来的内存中的信息。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="linux_1">三、Linux 系统重要文件夹与文件的内容<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h1>
+<p>1、 /etc/passwd</p>
+<p>保存了用户数据库，其中包括用户名、加密过的密码等</p>
+<p>2、/etc/group</p>
+<p>保存了用户组的信息</p>
+<p>3、/etc/issue</p>
+<p>默认是发行版信息，实际上，文件里的内容用来显示在每次登录系统后终端显示的欢迎文字</p>
+<p>4、/var/log</p>
+<p>保存了许多程序的日志文件，例如登录日志</p>
+<h1 id="linux-file-attribute">四、Linux 文件的属性（File Attribute）<a class="headerlink" href="#linux-file-attribute" title="Permanent link">&para;</a></h1>
+<p>使用 <code>ls -l filename</code> 命令查看文件的权限，例如：</p>
+<p>-rw-r--r-- 1 root root 298 Sep 30 21:31 os-release</p>
+<ul>
+<li>
+<p>第一个字符 - 代表这是一个文件，d表示目录（即文件夹，在Linux内，文件夹也是一种特殊的文件），l表示链接</p>
+</li>
+<li>
+<p>接下来三个字符rw- 表示文件的所有者对该文件可读（r，read）可写（w，write）但不可运行（x）</p>
+</li>
+<li>
+<p>之后三个字符r-- 表示文件所有者所在的用户组 的其他用户们 对该文件可读，不可写，不可运行</p>
+</li>
+<li>
+<p>最后三个r-- 表示其他用户对该文件可读，不可写，不可运行</p>
+</li>
+<li>
+<p>数字1表示链接的文件数（与l类型的文件有关）</p>
+</li>
+<li>
+<p>之后的root 表示为文件所属的用户</p>
+</li>
+<li>
+<p>第二个root 表示为文件所属的用户（即root用户）所在的用户组为root用户组</p>
+</li>
+<li>
+<p>Sep 30 21:31 表示文件最后的更改日期</p>
+</li>
+<li>
+<p>os-release 为文件名</p>
+</li>
+</ul>
+<p>**如何修改文件或文件夹的权限： ** </p>
+<p>1、使用数字表示</p>
+<p>例如：rw-r--r--，以二进制表示为110,100,100，即644</p>
+<p><code>chmod 644 os-release</code></p>
+<p>例如 rwxrw-r--，以二进制表示为111,110,100，即764</p>
+<p><code>chmod 764 os-release</code></p>
+<p>2、使用字母表示</p>
+<p><code>chmod u+x os-release</code></p>
+<p>表示给文件所属的用户（u）增加（+）运行（x）权限；</p>
+<p><code>chmod g-wx os-release</code></p>
+<p>表示给文件所属用户的用户组（g）去除（-）写权限（w）和运行权限（x）</p>
+<p><code>chmod o+wx os-release</code></p>
+<p>表示给文件所属用户用户组之外的用户（o）增加（+）写权限（w）和运行权限（x）</p>
+<p><code>chmod a+r os-release</code></p>
+<p>表示给所有用户（a）增加读（r）权限</p>
+<p>3、改变文件所有者</p>
+<p>chown命令（change owner）</p>
+<p><code>chown user1 os-release</code>  将os-release文件所有者改为user1</p>
+<p>chgrp命令（change group）</p>
+<p><code>chgrp basic—user os-release</code>  将os-release文件所属用户组改为basic-user</p>
+<h1 id="file-system">五、文件系统（File System）<a class="headerlink" href="#file-system" title="Permanent link">&para;</a></h1>
+<p>参考：</p>
+<p>1、 <a href="https://linux.cn/article-9586-1.html">https://linux.cn/article-9586-1.html</a> 查看Linux发行版名称与版本号的8种方法</p>
+<p>2、 <a href="https://www.cnblogs.com/zhuchenglin/p/8686924.html">https://www.cnblogs.com/zhuchenglin/p/8686924.html</a> Linux 各个目录的详细介绍</p>
+<p>3、 <a href="https://www.cnblogs.com/123-/p/4189072.html">https://www.cnblogs.com/123-/p/4189072.html</a> Linux下用户组、文件权限详解</p>
                 
                   
                 
