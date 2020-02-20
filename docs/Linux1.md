@@ -1,11 +1,15 @@
-#Linux Analysis
+# Linux Basic Analysis
 
 文档侧重于以电子数据取证为目的的Linux 系统解析，主要包含Linux 文件系统目录、特殊的系统文件、常用软件的目录、文件与功能等，可能不会介绍Linux 开发的相关内容。
 
 
- 
 
-# 一、常见的Linux 发行版
+[TOC]
+
+
+
+
+## 一、常见的Linux 发行版
 
 DebianOS，以及其衍生版本：Ubuntu、LinuxMint、Deepin、Kali Linux
 
@@ -30,17 +34,17 @@ uname ：
 查找\etc 中的文件：
 
 对于Debian 及其衍生版：
-`cat \etc\issue
-cat \etc\issue.net
-cat \etc\lsb-release
-cat \etc\os-release`
+`cat \etc\issue`
+`cat \etc\issue.net`
+`cat \etc\lsb-release`
+`cat \etc\os-release`
 
 对于CentOS：
 `cat \etc\centos-release`
 对于Fedora：
 `cat \etc\fedora-release`
 
-# 二、Linux 系统的典型目录结构（Dir Structure）
+## 二、Linux 系统的典型目录结构（Dir Structure）
 
  
 
@@ -72,7 +76,7 @@ cat \etc\os-release`
 
 
 
-# 三、Linux 系统重要文件夹与文件的内容
+## 三、Linux 系统重要文件夹与文件的内容
 
 1、 /etc/passwd
 
@@ -92,7 +96,7 @@ cat \etc\os-release`
 
  
 
-# 四、Linux 文件的属性（File Attribute）
+## 四、Linux 文件的属性（File Attribute）
 
  使用 `ls -l filename ` 命令查看文件的权限，例如：
 
@@ -160,7 +164,7 @@ chgrp命令（change group）
 
 
 
-# 五、文件系统（File System）
+## 五、文件系统（File System）
 
 
 
