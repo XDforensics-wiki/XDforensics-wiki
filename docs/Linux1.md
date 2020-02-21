@@ -4,10 +4,6 @@
 
 
 
-[TOC]
-
-
-
 
 ## 一、常见的Linux 发行版
 
@@ -98,7 +94,9 @@ uname ：
 
 ## 四、Linux 文件的属性（File Attribute）
 
- 使用 `ls -l filename ` 命令查看文件的权限，例如：
+### 查看文件或文件夹的权限 
+
+使用 `ls -l filename ` 命令查看文件的权限，例如：
 
 -rw-r--r-- 1 root root 298 Sep 30 21:31 os-release
 
@@ -122,7 +120,7 @@ uname ：
 
  
 
-**如何修改文件或文件夹的权限： ** 
+### 如何修改文件或文件夹的权限： 
 
 1、使用数字表示
 
@@ -165,6 +163,48 @@ chgrp命令（change group）
 
 
 ## 五、文件系统（File System）
+
+当前的Linux 正在使用什么文件系统，可以在 /etc/fstab 文件中查看，通常为ext4
+
+Windows 通常为NTFS
+
+
+
+//TODO: 等待完成
+
+
+
+## 六、常见的系统功能
+
+1、NTP 时间同步
+
+NTP 服务使用UDP123 端口与NTP服务器通信，更新系统时间，ntp 服务器配置保存在/etc/ntp.conf 文件中
+
+2、
+
+
+
+//TODO: 添加新内容
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
