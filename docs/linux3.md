@@ -67,6 +67,18 @@ NAS 本身不代表任何协议，它可以使用FTP，Samba，甚至HTTP 等协
 
 
 
+//TODO: 考虑是否有补充的必要
+
+
+
+## 三、防火墙（iptables）
+
+
+
+## 四、SSH 与Telnet
+
+
+
 
 
 

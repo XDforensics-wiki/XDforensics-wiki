@@ -180,7 +180,24 @@ Windows 通常为NTFS
 
 NTP 服务使用UDP123 端口与NTP服务器通信，更新系统时间，ntp 服务器配置保存在/etc/ntp.conf 文件中
 
-2、
+2、Bash
+
+与Windows 的cmd 类似，Linux 使用bash 来进行系统交互。
+
+**Shell 和Terminal 有什么区别？**
+
+> - 我们打开 Windows 的那个「小黑框」（Command Prompt），实际上就是打开了一个**终端（Terminal）**
+> - 在终端里面「输入命令，得到结果」的交互程序，就是**命令行解释器（Shell）**
+>
+> 也正因如此，Windows 最新的 Shell 叫 PowerShell。（控制台 Console 则是相对古老的概念，是大型机物理意义上面的独立终端，我们在这里先不探讨这个话题。）使用 macOS 和 Linux 的同学如果听说过 `bash` 和 `zsh` 的话，它们同样也是 Shell。
+>
+> 打个比方，Terminal 就像是一个人的衣服，可以有各种颜色、形状甚至功能；那么 Shell 则是这个人，你和他沟通来获得信息，并且他可以在与你沟通的过程中事先告诉你许多信息、提醒，甚至自动帮你补充你想说的话。
+>
+> ![Difference between shell and terminal](https://cdn.sspai.com/2019/02/12/77907a34b4bb1b7e96eecd07cb2f96ce.gif?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)<center>Terminal 和 Shell 的区别和联系</center>
+>
+> 来源：https://sspai.com/post/52868
+
+
 
 
 
