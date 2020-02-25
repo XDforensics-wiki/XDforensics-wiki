@@ -36,7 +36,7 @@
     
     
       
-        <title>内存取证原理学习及Volatility - 篇一</title>
+        <title>Linux应用程序 - XDforensics-Wiki</title>
       
     
     
@@ -75,7 +75,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#linux-program-analysis" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                内存取证原理学习及Volatility - 篇一
+                Linux应用程序
               
             </span>
           
@@ -175,7 +175,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" class="md-tabs__link md-tabs__link--active">
+        <a href="../ram/" class="md-tabs__link">
           Classification
         </a>
       
@@ -293,12 +293,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
     
     <label class="md-nav__link" for="nav-2-1">
       RAM Analysis
@@ -314,73 +312,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        内存取证原理学习及Volatility - 篇一
-      </label>
-    
-    <a href="./" title="内存取证原理学习及Volatility - 篇一" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ram/" title="内存取证原理学习及Volatility - 篇一" class="md-nav__link">
       内存取证原理学习及Volatility - 篇一
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    内存取证定义及其特点
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#volatility" class="md-nav__link">
-    Volatility简介
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2019" class="md-nav__link">
-    2019美亚杯内存取证部例题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    结束语
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    参考学习链接
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -417,10 +353,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
     
     <label class="md-nav__link" for="nav-2-3">
       Linux
@@ -448,11 +386,90 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../linux2/" title="Linux应用程序" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Linux应用程序
+      </label>
+    
+    <a href="./" title="Linux应用程序" class="md-nav__link md-nav__link--active">
       Linux应用程序
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux-docker" class="md-nav__link">
+    一、Linux 下的Docker 容器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    使用Docker 时，主要区分以下两个概念：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    Docker 入门
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_2" class="md-nav__link">
+    Docker 的配置目录与文件分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_3" class="md-nav__link">
+    Docker 网络
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firefox" class="md-nav__link">
+    二、Firefox
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -528,41 +545,56 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    内存取证定义及其特点
+  <a href="#linux-docker" class="md-nav__link">
+    一、Linux 下的Docker 容器
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    使用Docker 时，主要区分以下两个概念：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    Docker 入门
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_2" class="md-nav__link">
+    Docker 的配置目录与文件分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_3" class="md-nav__link">
+    Docker 网络
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#volatility" class="md-nav__link">
-    Volatility简介
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2019" class="md-nav__link">
-    2019美亚杯内存取证部例题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    结束语
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    参考学习链接
+  <a href="#firefox" class="md-nav__link">
+    二、Firefox
   </a>
   
 </li>
@@ -584,97 +616,93 @@
               
                 
                 
-                  <h1>内存取证原理学习及Volatility - 篇一</h1>
-                
-                <blockquote>
-<p>网络攻击内存化和网络犯罪隐遁化,使部分关键数字证据只存在于物理内存或暂存于页面交换文件中,这使得传统的基于文件系统的计算机取证不能有效应对。</p>
-</blockquote>
-<!--More-->
-
-<h2 id="_1">内存取证定义及其特点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>先给出官方的指导指南<code>《The Art Of Memeory Forensics》</code>一书中给出的介绍(后面会给出下载地址)，个人认为非常清晰：
-<div class="codehilite"><pre><span></span>  Memory forensics is arguably the most fruitful, interesting, and provocative realm
-of digital forensics. Each function performed by an operating system or applica-
-tion results in specific modifications to the computer’s memory (RAM), which can often
-persist a long time after the action, essentially preserving them. Additionally, memory
-forensics provides unprecedented visibility into the runtime state of the system, such as
-which processes were running, open network connections, and recently executed com-
-mands. You can extract these artifacts in a manner that is completely independent of the
-system you are investigating, reducing the chance that malware or rootkits can interfere
-with your results. Critical data often exists exclusively in memory, such as disk encryp-
-tion keys, memory-resident injected code fragments, off-the-record chat messages, unen-
-crypted e-mail messages, and non-cacheable Internet history records.
-</pre></div>
-　　从你按下计算机电源的那一刻起，内存就开始工作了，当然其他硬件也在工作，但是内存会加载很多的重要数据，如操作系统的加载、预启动程序的加载、正常运行时程序程序的加载等等。
-　　<strong>内存取证的一个特点就是它提供了一种清晰的途径来让人们对计算机实时的状态进行取证，如当时的进程情况、网络连接情况、执行过的命令等等</strong>，这对提取一些木马程序等恶意程序是有很大帮助的，除此之外，你甚至可以从内存中取出一些密码信息，如mimikatz就是这么干的。
-　　</p>
-<h2 id="volatility">Volatility简介<a class="headerlink" href="#volatility" title="Permanent link">&para;</a></h2>
-<p>Volatility是一个用于内存取证的框架工具，集成了多种模块，支持市面常见的操作系统。
-　　下面简单浏览一下大概界面和常用模块：
-　　<img alt="界面" src="https://lzwgiter.github.iohttps://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/界面.png" />
-　　这是volatility的主页面，也有GUI的exe版本，但是没有Python版的扩展性强(如集成mimikatz)
-　　下面列出常用的模块：
-<div class="codehilite"><pre><span></span>imageinfo：显示目标镜像的摘要信息，这常常是第一步---获取内存的操作系统类型及版本，之后可以在 –profile 中带上对应的操作系统，后续操作都要带上这一参数
-pslist：该插件列举出系统进程，但它不能检测到隐藏或者解链的进程，psscan可以
-psscan：可以找到先前已终止(不活动)的进程以及被rootkit隐藏或解链的进程
-pstree：以树的形式查看进程列表，和pslist一样，也无法检测隐藏或解链的进程
-mendump：提取出指定进程，常用foremost 来分离里面的文件(历年美亚杯有此题)
-filescan：扫描所有的文件列表
-hashdump：查看当前操作系统中的 password hash，例如 Windows 的 SAM 文件内容(实际中没有mimikatz效果好)
-svcscan：扫描 Windows 的服务
-connscan：查看网络连接
-cmdscan：可用于查看终端记录
-dlllist: 列出某一进程加载的所有dll文件
-dumpfiles：导出某一文件(指定虚拟地址)
-hivelist: 列出所有的注册表项及其虚拟地址和物理地址
-timeliner: 将所有操作系统事件以时间线的方式展开
-</pre></div></p>
-<h2 id="2019">2019美亚杯内存取证部例题<a class="headerlink" href="#2019" title="Permanent link">&para;</a></h2>
-<p>这里我选了几个简单的和几个示例性的例题，作为参考，题目来源为2019年的美亚杯个人赛。
-　　
-　　1. 例题1
-　　<img alt="例题1" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题1.png" />
-　　这道题出了基本就是第一题，因为操作系统及硬件架构这一信息是必要的。使用<code>imageinfo</code>模块就可以了，之后volatility会给出几个结果，其中一般第一个就是对的，不对还可以继续尝试其他可能，正确的标志就是你使用这个<code>profile</code>可以调用模块了，错误的<code>profile</code>是不能正常使用模块的。结果：
-　　<img alt="例题1解" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题1解.png" />
-　　
- 　　2. 例题2
-　　<img alt="例题2" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题2.png" />
-　　查询进程信息使用<code>pslist</code>模块，这里会列出系统进程的PID、PPID、时间等等信息。结果：
-　　<img alt="例题2解" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题2解.png" />
-　　
-　　3. 例题3
-　　<img alt="例题3" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题3.png" />
-　　查看当前的网络连接情况可以使用<code>netscan</code>模块，该模块会列出所有实时的网络连接信息，包括使用的协议类型、源地址、目的地址、双方的端口号、连接状态(LISTENING、CLOSED等)。结果：
-　　<img alt="例题3解" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题3解.png" /></p>
-<p>4. 例题4
-　　<img alt="例题4" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题4.png" />
-　　内存取证中的一个重要步骤就是解析注册表，Windos注册表会帮助你获得很多隐藏的信息以及一些重要的信息(如软件信息、系统信息、硬件信息等等)，如这个题中的<code>SAM</code>文件中就储存着加密的账户密码信息，这个注册表项有助于我们获取密码(如hashdump模块)。结果：
-　　<img alt="例题4解" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题4解.png" />
-　　
-　　5. 例题5
-　　<img alt="例题5" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题5.png" />
-　　因为在例题三中我们看到他访问了同一网段上的一台机器上的SMB服务(445端口)，所以猜测盘符E实际上位于那台机器上，并且考虑到牵扯时间的问题，所以使用<code>timeliner</code>模块，该模块会以时间线的方式，列出计算机所有活动。
-　　可以看到2019-10-31 06:59:45时，使用了explorer.exe文件管理器，以TMP_User的身份访问了E盘上 的Personal Information.xlsx。
-　　<img alt="例题5解" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题5解.png" />
-　　
-　　6. 例题6
-　　<img alt="例题6" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题6.png" />
-　　<strong>本题是美亚杯第一次在内存取证部分涉及硬件信息的搜寻，以后应多加训练</strong>，实际上本题是对注册表的解析，因为USB设备的信息实际上会在首次使用时被记录至注册表中，下面时分析过程：
-　　先使用<code>svcscan</code>模块进行服务的扫描：
-　　<img alt="例题6解-1" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题6解-1.png" />
-　　可以看到USB的相关服务，可以确定有USB设备。
-　　
-　　使用<code>hivelist</code>模块结合<code>printKey</code>模块进行注册表项的查找，在下列表项中可以看到USB设备的详细信息为希捷的设备：
-　　<img alt="例题6解-2" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题6解-2.png" /></p>
-<p>最终可以在注册表中看大该设备的GUID，最终排除改该选项得出答案为E选项:
-　　<img alt="例题6解-3" src="https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/例题6解-3.png" />
-　　</p>
-<h2 id="_2">结束语<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>本篇只是对内存取证做简单介绍，以及2019美亚杯内存取证部分例题的一个简单浏览，后续会更新详细的关于内存取证方面的博客。
-　　</p>
-<h2 id="_3">参考学习链接<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><a href="https://www.freebuf.com/column/186799.html">浅谈内存取证</a>
-<a href="https://bookist.cc/book/37522120704">《The Art Of Memeory Forensics》</a></p>
+                <h1 id="linux-program-analysis">Linux Program Analysis<a class="headerlink" href="#linux-program-analysis" title="Permanent link">&para;</a></h1>
+<h2 id="linux-docker">一、Linux 下的Docker 容器<a class="headerlink" href="#linux-docker" title="Permanent link">&para;</a></h2>
+<p>我们可以把Docker 当作多功能沙盒，可以将需要的软件放在一个容器内运行，而不干扰容器外的系统。例如，在两个个容器内分别运行nginx服务器，容器一对外开放端口10801，容器二对外开放端口10802，这样，在同一台主机内，两个web服务器就可以同时互不干扰地运行。</p>
+<h3 id="docker">使用Docker 时，主要区分以下两个概念：<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<p>1、Docker镜像 image</p>
+<p>2、容器 Container</p>
+<p>我们可以在Docker Hub上下载各种images，例如nginx，mysql，ubuntu等，也可以将自己的软件运行环境打包成一个image</p>
+<p>使用image来新建一个container</p>
+<h3 id="docker_1">Docker 入门<a class="headerlink" href="#docker_1" title="Permanent link">&para;</a></h3>
+<p>例如：</p>
+<p>查阅Docker Hub内的<a href="https://hub.docker.com/_/mysql">官方MySQL 文档</a>，首先下载MySQL镜像</p>
+<p><code>docker pull mysql</code></p>
+<p>如果要指定某个版本的MySQL，在mysql后加冒号指定版本，例如：</p>
+<p><code>docker pull mysql:8.0.10</code></p>
+<p>不指定版本则默认为latest（最新版）</p>
+<p>等待下载完成，下载完成后查看目前已经下载好的images：</p>
+<p><code>docker images</code></p>
+<p>确认镜像已经下载成功，接下来使用这个镜像新建一个容器：</p>
+<p><code>docker run --name first_mysql_container -p 23306:3306 -e MYSQL_ROOT_PASSWORD=yourpassword -d mysql</code></p>
+<p>其中的命令和参数分别为：</p>
+<ul>
+<li>
+<p>run：docker操作，用来新建容器；</p>
+</li>
+<li>
+<p>--name first_mysql_container：给容器命名，可选；</p>
+</li>
+<li>
+<p>-p 23306:3306：端口映射，将容器内的3306端口映射到主机的23306端口</p>
+</li>
+<li>
+<p>-e MYSQL_ROOT_PASSWORD=yourpassword：设置MySQL root密码</p>
+</li>
+<li>
+<p>-d ：容器创建后将会在后台运行，命令执行后返回一个container id</p>
+</li>
+<li>
+<p>mysql：使用mysql镜像，如果要指定版本，则写为 mysql:tag</p>
+</li>
+</ul>
+<p>使用命令 <code>docker ps</code>来查看已经创建的容器，Docker会显示以下详情：</p>
+<ul>
+<li>CONTAINER ID ：唯一的容器id，对应每一个单独的容器</li>
+<li>IMAGE：这个容器是使用什么镜像创建的</li>
+<li>COMMAND</li>
+<li>CREATED： 容器创建的时间</li>
+<li>STATUS：容器已经运行了或者停止了多长时间</li>
+<li>PORTS：端口映射情况</li>
+<li>NAMES：容器的名字</li>
+</ul>
+<p>创建好容器之后，进入容器，亲手操作mysql：</p>
+<p><code>docker exec -it first_mysql_container bash</code></p>
+<ul>
+<li>exec：docker命令，在运行的容器中执行命令</li>
+<li>-it：我一般都加上这两个参数</li>
+<li>first_mysql_container：容器名字，此处填容器ID亦可</li>
+<li>bash：在这个容器内运行bash</li>
+</ul>
+<p>之后输入 <code>mysql -u root -p</code> 即可使用MySQL</p>
+<h3 id="docker_2">Docker 的配置目录与文件分析<a class="headerlink" href="#docker_2" title="Permanent link">&para;</a></h3>
+<p>1、如果系统还可以仿真运行，docker服务可以启动，使用一下命令：</p>
+<p><code>docker version</code> 查询docker client 和server 版本，</p>
+<p><code>docker info</code> 可以详细调查正在运行、暂停或停止的container数量，是否使用了docker集群需要的swarm网络模式，docker镜像源地址等</p>
+<p><code>docker sespect ImageID</code> 查询某个镜像的详细信息</p>
+<p>2、如果系统不能仿真，或是仿真之后无法启动docker服务，应该首先考虑修复系统丢失的文件或进行合理配置，恢复docker服务。</p>
+<p>3、如果只能从硬盘分析入手，则考虑一下方法：</p>
+<ul>
+<li>
+<p>要确定Docker Server的版本，可以查找apt 包管理程序的日志：/var/log/apt/term.log</p>
+</li>
+<li>
+<p>查看已经下载了哪些镜像，检查 /var/lib/docker/image/overlay2/repositories.json 文件</p>
+</li>
+</ul>
+<p>* 需要注意的是，docker image 使用OverlayFS 分层存储在/var/lib/docker/overlay2，不好区分</p>
+<ul>
+<li>查看container的详细信息，在/var/lib/docker/containers找到对应containerID 的文件夹，查看config.v2.json 中的内容，其中包含：当前容器是否在运行、暂停或者停止，容器运行的虚拟主机名称Hostname，在容器内使用的端口ExposedPorts，容器内的环境变量Env，容器所使用的镜像ID，容器映射的端口Network Settings.Ports 等等</li>
+</ul>
+<h3 id="docker_3">Docker 网络<a class="headerlink" href="#docker_3" title="Permanent link">&para;</a></h3>
+<p>//TODO: 等待完成</p>
+<h2 id="firefox">二、Firefox<a class="headerlink" href="#firefox" title="Permanent link">&para;</a></h2>
+<p>对于安装了Xserver，gnome套件，或者Xfce 等桌面的Linux 系统，可以运行桌面版的图形应用。</p>
+<p>参考：</p>
+<p>1、<a href="https://www.jianshu.com/p/806485990aea">https://www.jianshu.com/p/806485990aea</a> Docker文件目录 - 简书</p>
+<p>2、<a href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a> mysql - Docker Hub</p>
+<p>3、李鹏超, 周凯. 基于Docker容器的电子数据取证方法[J]. 吉林大学学报(理学版), 2019, 57(06): 1485-1490.</p>
+<p>4、</p>
                 
                   
                 
@@ -696,7 +724,7 @@ timeliner: 将所有操作系统事件以时间线的方式展开
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../preparation/" title="Preparation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../win/" title="Windows" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -705,19 +733,19 @@ timeliner: 将所有操作系统事件以时间线的方式展开
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Preparation
+                Windows
               </span>
             </div>
           </a>
         
         
-          <a href="../ram2/" title="内存取证原理学习及Volatility - 篇二" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../linux3/" title="Linux服务器" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                内存取证原理学习及Volatility - 篇二
+                Linux服务器
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
