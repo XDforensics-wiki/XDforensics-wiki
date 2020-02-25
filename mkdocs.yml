@@ -13,7 +13,7 @@ nav:
             - 内存取证原理学习及Volatility - 篇二 : ram2.md
         - Windows: win.md
         - Linux : 
-            - Linux系统基础 : linux1.md
+            - Linux系统基础 : Linux1.md
             - Linux应用程序 : linux2.md
             - Linux服务器 : linux3.md
         - MacOS : mac.md
