@@ -21,6 +21,7 @@ nav:
         - MacOS : mac.md
         - Mobile Devices : mobile.md
         - Packet Analysis : pac.md
+        - Others : others.md
 theme:
   name: 'material'
   feature:

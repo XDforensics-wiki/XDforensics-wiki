@@ -94,7 +94,29 @@ uname ：
 
 存储了各个网卡信息，例如eth0 文件夹内的address 文件记录了eth0 网卡的MAC 地址
 
+6、/etc/timezone
 
+时区信息：Asia/Shanghai
+
+7、/etc/system-release
+
+发行版信息：CentOS Linux release 7.3.1611 (Core) 
+
+8、/etc/locale.conf
+
+系统使用语言：LANG=en_US.UTF-8
+
+9、/etc/hostname
+
+主机名称
+
+10、/etc/motd
+
+登录欢迎语：Welcome to Alibaba Cloud Elastic Compute Service !
+
+11、/etc/resolv.conf
+
+使用的DNS 地址
 
 ## 四、Linux 文件的属性（File Attribute）
 
