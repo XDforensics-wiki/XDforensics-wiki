@@ -16,6 +16,8 @@
 
 使用image来新建一个container
 
+举个栗子：用一个Windows 7 iso镜像，可以给好多电脑安装系统。用一个MySQL Docker 镜像，可以创建好多个MySQL 容器
+
 ### Docker 入门
 
 例如：
@@ -109,9 +111,29 @@
 
 
 
-## 二、Firefox
+## 二、OpenSSH
 
-对于安装了Xserver，gnome套件，或者Xfce 等桌面的Linux 系统，可以运行桌面版的图形应用。
+使用SSH 来远程连接Linux 主机。
+
+被连接的主机：安装SSH server
+
+进行连接的主机：安装SSH client
+
+查看SSH 连接日志、SSH config 文件可以检索到曾经连接过这台主机的客户机IP地址。
+
+常见的几个文件：
+
+| 文件名                 | 说明                                                       |
+| ---------------------- | :--------------------------------------------------------- |
+| /var/log/secure        | 日志文件，记录登录历史记录                                 |
+| ~/.ssh/config          | ssh 配置文件，用来进行快速密钥认证登录，其中可能记录了私钥 |
+| ~/.ssh/authorized_keys | 记录公钥                                                   |
+
+密钥认证基本流程：
+
+使用ssh-keygen 命令生成一对密钥，私钥放在主机A 的config 文件里（当然需要编辑host等字段），公钥放在主机B 的authorized_keys 内，主机A 则可以无需密码通过SSH 连接主机B。
+
+
 
 
 

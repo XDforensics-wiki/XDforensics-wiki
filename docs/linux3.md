@@ -32,6 +32,8 @@
 
 ## 二、文件服务器（FTP，SMB，NAS）
 
+磁盘阵列参考：
+
 ### FTP
 
 可以在CentOS 或Ubuntu 使用vsftpd 配置FTP 服务。FTP服务使用TCP 21端口验证身份信息，使用TCP 20端口传输数据。
@@ -75,7 +77,27 @@ NAS 本身不代表任何协议，它可以使用FTP，Samba，甚至HTTP 等协
 
 
 
-## 四、SSH 与Telnet
+## 四、SSH
+
+使用SSH 来远程连接Linux 主机。
+
+被连接的主机：安装SSH server
+
+进行连接的主机：安装SSH client
+
+查看SSH 连接日志、SSH config 文件可以检索到曾经连接过这台主机的客户机IP地址。
+
+常见的几个文件：
+
+| 文件名                 | 说明                                                       |
+| ---------------------- | :--------------------------------------------------------- |
+| /var/log/secure        | 日志文件，记录登录历史记录                                 |
+| ~/.ssh/config          | ssh 配置文件，用来进行快速密钥认证登录，其中可能记录了私钥 |
+| ~/.ssh/authorized_keys | 记录公钥                                                   |
+
+密钥认证基本流程：
+
+使用ssh-keygen 命令生成一对密钥，私钥放在主机A 的config 文件里（当然需要编辑host等字段），公钥放在主机B 的authorized_keys 内，主机A 则可以无需密码通过SSH 连接主机B。
 
 
 

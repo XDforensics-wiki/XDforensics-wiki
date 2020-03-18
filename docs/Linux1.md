@@ -90,7 +90,33 @@ uname ：
 
 保存了许多程序的日志文件，例如登录日志
 
- 
+ 5、/sys/class/net
+
+存储了各个网卡信息，例如eth0 文件夹内的address 文件记录了eth0 网卡的MAC 地址
+
+6、/etc/timezone
+
+时区信息：Asia/Shanghai
+
+7、/etc/system-release
+
+发行版信息：CentOS Linux release 7.3.1611 (Core) 
+
+8、/etc/locale.conf
+
+系统使用语言：LANG=en_US.UTF-8
+
+9、/etc/hostname
+
+主机名称
+
+10、/etc/motd
+
+登录欢迎语：Welcome to Alibaba Cloud Elastic Compute Service !
+
+11、/etc/resolv.conf
+
+使用的DNS 地址
 
 ## 四、Linux 文件的属性（File Attribute）
 
@@ -176,13 +202,15 @@ Windows 通常为NTFS
 
 ## 六、常见的系统功能
 
-1、NTP 时间同步
+### 1、NTP 时间同步
 
 NTP 服务使用UDP123 端口与NTP服务器通信，更新系统时间，ntp 服务器配置保存在/etc/ntp.conf 文件中
 
-2、Bash
+### 2、Bash
 
-与Windows 的cmd 类似，Linux 使用bash 来进行系统交互。
+与Windows 的cmd 或PowerShell 类似，Linux 使用Bash 来进行系统交互。（也有oh-my-zsh等）
+
+随着微软对WSL 和PowerShell 的开发，Windows 上现在也可以使用Bash，Linux 和macOS 上也可以使用PowerShell
 
 **Shell 和Terminal 有什么区别？**
 
@@ -193,15 +221,17 @@ NTP 服务使用UDP123 端口与NTP服务器通信，更新系统时间，ntp �
 >
 > 打个比方，Terminal 就像是一个人的衣服，可以有各种颜色、形状甚至功能；那么 Shell 则是这个人，你和他沟通来获得信息，并且他可以在与你沟通的过程中事先告诉你许多信息、提醒，甚至自动帮你补充你想说的话。
 >
-> ![Difference between shell and terminal](https://cdn.sspai.com/2019/02/12/77907a34b4bb1b7e96eecd07cb2f96ce.gif?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)<center>Terminal 和 Shell 的区别和联系</center>
+> ![Difference between Shell and Terminal](..\res\linux\bash.gif)
+>
+> <center>Terminal 和 Shell 的区别和联系</center>
 >
 > 来源：https://sspai.com/post/52868
 
 
 
+每个用户的用户文件夹下都有该用户的Bash 历史记录（~/.bash_history），可以检索执行过的命令
 
 
-//TODO: 添加新内容
 
 
 
