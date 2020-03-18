@@ -456,8 +456,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#firefox" class="md-nav__link">
-    二、Firefox
+  <a href="#openssh" class="md-nav__link">
+    二、OpenSSH
   </a>
   
 </li>
@@ -481,6 +481,30 @@
   <li class="md-nav__item">
     <a href="../linux3/" title="Linux服务器" class="md-nav__link">
       Linux服务器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux4/" title="取证大师分析Linux镜像的方法" class="md-nav__link">
+      取证大师分析Linux镜像的方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux5/" title="题目示例" class="md-nav__link">
+      题目示例
     </a>
   </li>
 
@@ -522,6 +546,18 @@
   <li class="md-nav__item">
     <a href="../pac/" title="Packet Analysis" class="md-nav__link">
       Packet Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../others/" title="Others" class="md-nav__link">
+      Others
     </a>
   </li>
 
@@ -593,8 +629,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#firefox" class="md-nav__link">
-    二、Firefox
+  <a href="#openssh" class="md-nav__link">
+    二、OpenSSH
   </a>
   
 </li>
@@ -624,6 +660,7 @@
 <p>2、容器 Container</p>
 <p>我们可以在Docker Hub上下载各种images，例如nginx，mysql，ubuntu等，也可以将自己的软件运行环境打包成一个image</p>
 <p>使用image来新建一个container</p>
+<p>举个栗子：用一个Windows 7 iso镜像，可以给好多电脑安装系统。用一个MySQL Docker 镜像，可以创建好多个MySQL 容器</p>
 <h3 id="docker_1">Docker 入门<a class="headerlink" href="#docker_1" title="Permanent link">&para;</a></h3>
 <p>例如：</p>
 <p>查阅Docker Hub内的<a href="https://hub.docker.com/_/mysql">官方MySQL 文档</a>，首先下载MySQL镜像</p>
@@ -696,8 +733,36 @@
 </ul>
 <h3 id="docker_3">Docker 网络<a class="headerlink" href="#docker_3" title="Permanent link">&para;</a></h3>
 <p>//TODO: 等待完成</p>
-<h2 id="firefox">二、Firefox<a class="headerlink" href="#firefox" title="Permanent link">&para;</a></h2>
-<p>对于安装了Xserver，gnome套件，或者Xfce 等桌面的Linux 系统，可以运行桌面版的图形应用。</p>
+<h2 id="openssh">二、OpenSSH<a class="headerlink" href="#openssh" title="Permanent link">&para;</a></h2>
+<p>使用SSH 来远程连接Linux 主机。</p>
+<p>被连接的主机：安装SSH server</p>
+<p>进行连接的主机：安装SSH client</p>
+<p>查看SSH 连接日志、SSH config 文件可以检索到曾经连接过这台主机的客户机IP地址。</p>
+<p>常见的几个文件：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/var/log/secure</td>
+<td align="left">日志文件，记录登录历史记录</td>
+</tr>
+<tr>
+<td>~/.ssh/config</td>
+<td align="left">ssh 配置文件，用来进行快速密钥认证登录，其中可能记录了私钥</td>
+</tr>
+<tr>
+<td>~/.ssh/authorized_keys</td>
+<td align="left">记录公钥</td>
+</tr>
+</tbody>
+</table>
+<p>密钥认证基本流程：</p>
+<p>使用ssh-keygen 命令生成一对密钥，私钥放在主机A 的config 文件里（当然需要编辑host等字段），公钥放在主机B 的authorized_keys 内，主机A 则可以无需密码通过SSH 连接主机B。</p>
 <p>参考：</p>
 <p>1、<a href="https://www.jianshu.com/p/806485990aea">https://www.jianshu.com/p/806485990aea</a> Docker文件目录 - 简书</p>
 <p>2、<a href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a> mysql - Docker Hub</p>

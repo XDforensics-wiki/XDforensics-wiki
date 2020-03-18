@@ -475,8 +475,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ssh-telnet" class="md-nav__link">
-    四、SSH 与Telnet
+  <a href="#ssh" class="md-nav__link">
+    四、SSH
   </a>
   
 </li>
@@ -489,6 +489,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux4/" title="取证大师分析Linux镜像的方法" class="md-nav__link">
+      取证大师分析Linux镜像的方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux5/" title="题目示例" class="md-nav__link">
+      题目示例
+    </a>
   </li>
 
         
@@ -529,6 +553,18 @@
   <li class="md-nav__item">
     <a href="../pac/" title="Packet Analysis" class="md-nav__link">
       Packet Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../others/" title="Others" class="md-nav__link">
+      Others
     </a>
   </li>
 
@@ -607,8 +643,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ssh-telnet" class="md-nav__link">
-    四、SSH 与Telnet
+  <a href="#ssh" class="md-nav__link">
+    四、SSH
   </a>
   
 </li>
@@ -656,6 +692,7 @@
 </li>
 </ul>
 <h2 id="ftpsmbnas">二、文件服务器（FTP，SMB，NAS）<a class="headerlink" href="#ftpsmbnas" title="Permanent link">&para;</a></h2>
+<p>磁盘阵列参考：</p>
 <h3 id="ftp">FTP<a class="headerlink" href="#ftp" title="Permanent link">&para;</a></h3>
 <p>可以在CentOS 或Ubuntu 使用vsftpd 配置FTP 服务。FTP服务使用TCP 21端口验证身份信息，使用TCP 20端口传输数据。</p>
 <ul>
@@ -696,7 +733,36 @@
 <p>NAS 本身不代表任何协议，它可以使用FTP，Samba，甚至HTTP 等协议传送文件。</p>
 <p>//TODO: 考虑是否有补充的必要</p>
 <h2 id="iptables">三、防火墙（iptables）<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h2>
-<h2 id="ssh-telnet">四、SSH 与Telnet<a class="headerlink" href="#ssh-telnet" title="Permanent link">&para;</a></h2>
+<h2 id="ssh">四、SSH<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h2>
+<p>使用SSH 来远程连接Linux 主机。</p>
+<p>被连接的主机：安装SSH server</p>
+<p>进行连接的主机：安装SSH client</p>
+<p>查看SSH 连接日志、SSH config 文件可以检索到曾经连接过这台主机的客户机IP地址。</p>
+<p>常见的几个文件：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/var/log/secure</td>
+<td align="left">日志文件，记录登录历史记录</td>
+</tr>
+<tr>
+<td>~/.ssh/config</td>
+<td align="left">ssh 配置文件，用来进行快速密钥认证登录，其中可能记录了私钥</td>
+</tr>
+<tr>
+<td>~/.ssh/authorized_keys</td>
+<td align="left">记录公钥</td>
+</tr>
+</tbody>
+</table>
+<p>密钥认证基本流程：</p>
+<p>使用ssh-keygen 命令生成一对密钥，私钥放在主机A 的config 文件里（当然需要编辑host等字段），公钥放在主机B 的authorized_keys 内，主机A 则可以无需密码通过SSH 连接主机B。</p>
 <p>参考：</p>
 <p>1、<a href="http://www.xlysoft.net/detail/7-314-1194.html">http://www.xlysoft.net/detail/7-314-1194.html</a> 效率源科技 如何对有访问密码的MySQL数据库进行取证</p>
 <p>2、<a href="https://blog.csdn.net/hancoder/article/details/100988807">https://blog.csdn.net/hancoder/article/details/100988807</a> ubuntu下ftp的配置</p>
@@ -736,13 +802,13 @@
           </a>
         
         
-          <a href="../mac/" title="MacOS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../linux4/" title="取证大师分析Linux镜像的方法" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                MacOS
+                取证大师分析Linux镜像的方法
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

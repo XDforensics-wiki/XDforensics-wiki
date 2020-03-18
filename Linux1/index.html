@@ -462,6 +462,26 @@
     六、常见的系统功能
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1ntp" class="md-nav__link">
+    1、NTP 时间同步
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2bash" class="md-nav__link">
+    2、Bash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -495,6 +515,30 @@
   <li class="md-nav__item">
     <a href="../linux3/" title="Linux服务器" class="md-nav__link">
       Linux服务器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux4/" title="取证大师分析Linux镜像的方法" class="md-nav__link">
+      取证大师分析Linux镜像的方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux5/" title="题目示例" class="md-nav__link">
+      题目示例
     </a>
   </li>
 
@@ -536,6 +580,18 @@
   <li class="md-nav__item">
     <a href="../pac/" title="Packet Analysis" class="md-nav__link">
       Packet Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../others/" title="Others" class="md-nav__link">
+      Others
     </a>
   </li>
 
@@ -624,6 +680,26 @@
   <a href="#_3" class="md-nav__link">
     六、常见的系统功能
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1ntp" class="md-nav__link">
+    1、NTP 时间同步
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2bash" class="md-nav__link">
+    2、Bash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -769,6 +845,20 @@
 <p>默认是发行版信息，实际上，文件里的内容用来显示在每次登录系统后终端显示的欢迎文字</p>
 <p>4、/var/log</p>
 <p>保存了许多程序的日志文件，例如登录日志</p>
+<p>5、/sys/class/net</p>
+<p>存储了各个网卡信息，例如eth0 文件夹内的address 文件记录了eth0 网卡的MAC 地址</p>
+<p>6、/etc/timezone</p>
+<p>时区信息：Asia/Shanghai</p>
+<p>7、/etc/system-release</p>
+<p>发行版信息：CentOS Linux release 7.3.1611 (Core) </p>
+<p>8、/etc/locale.conf</p>
+<p>系统使用语言：LANG=en_US.UTF-8</p>
+<p>9、/etc/hostname</p>
+<p>主机名称</p>
+<p>10、/etc/motd</p>
+<p>登录欢迎语：Welcome to Alibaba Cloud Elastic Compute Service !</p>
+<p>11、/etc/resolv.conf</p>
+<p>使用的DNS 地址</p>
 <h2 id="linux-file-attribute">四、Linux 文件的属性（File Attribute）<a class="headerlink" href="#linux-file-attribute" title="Permanent link">&para;</a></h2>
 <h3 id="_1">查看文件或文件夹的权限<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>使用 <code>ls -l filename</code> 命令查看文件的权限，例如：</p>
@@ -827,10 +917,11 @@
 <p>Windows 通常为NTFS</p>
 <p>//TODO: 等待完成</p>
 <h2 id="_3">六、常见的系统功能<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>1、NTP 时间同步</p>
+<h3 id="1ntp">1、NTP 时间同步<a class="headerlink" href="#1ntp" title="Permanent link">&para;</a></h3>
 <p>NTP 服务使用UDP123 端口与NTP服务器通信，更新系统时间，ntp 服务器配置保存在/etc/ntp.conf 文件中</p>
-<p>2、Bash</p>
-<p>与Windows 的cmd 类似，Linux 使用bash 来进行系统交互。</p>
+<h3 id="2bash">2、Bash<a class="headerlink" href="#2bash" title="Permanent link">&para;</a></h3>
+<p>与Windows 的cmd 或PowerShell 类似，Linux 使用Bash 来进行系统交互。（也有oh-my-zsh等）</p>
+<p>随着微软对WSL 和PowerShell 的开发，Windows 上现在也可以使用Bash，Linux 和macOS 上也可以使用PowerShell</p>
 <p><strong>Shell 和Terminal 有什么区别？</strong></p>
 <blockquote>
 <ul>
@@ -839,10 +930,11 @@
 </ul>
 <p>也正因如此，Windows 最新的 Shell 叫 PowerShell。（控制台 Console 则是相对古老的概念，是大型机物理意义上面的独立终端，我们在这里先不探讨这个话题。）使用 macOS 和 Linux 的同学如果听说过 <code>bash</code> 和 <code>zsh</code> 的话，它们同样也是 Shell。</p>
 <p>打个比方，Terminal 就像是一个人的衣服，可以有各种颜色、形状甚至功能；那么 Shell 则是这个人，你和他沟通来获得信息，并且他可以在与你沟通的过程中事先告诉你许多信息、提醒，甚至自动帮你补充你想说的话。</p>
-<p><img alt="Difference between shell and terminal" src="https://cdn.sspai.com/2019/02/12/77907a34b4bb1b7e96eecd07cb2f96ce.gif?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" /><center>Terminal 和 Shell 的区别和联系</center></p>
+<p><img alt="Difference between Shell and Terminal" src="..\res\linux\bash.gif" /></p>
+<p><center>Terminal 和 Shell 的区别和联系</center></p>
 <p>来源：<a href="https://sspai.com/post/52868">https://sspai.com/post/52868</a></p>
 </blockquote>
-<p>//TODO: 添加新内容</p>
+<p>每个用户的用户文件夹下都有该用户的Bash 历史记录（~/.bash_history），可以检索执行过的命令</p>
 <p>参考：</p>
 <p>1、 <a href="https://linux.cn/article-9586-1.html">https://linux.cn/article-9586-1.html</a> 查看Linux发行版名称与版本号的8种方法</p>
 <p>2、 <a href="https://www.cnblogs.com/zhuchenglin/p/8686924.html">https://www.cnblogs.com/zhuchenglin/p/8686924.html</a> Linux 各个目录的详细介绍</p>
