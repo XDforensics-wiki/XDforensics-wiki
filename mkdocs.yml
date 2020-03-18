@@ -9,13 +9,19 @@ nav:
         - Preparation : preparation.md
     - Classification : 
         - RAM Analysis :
-            -内存取证原理学习及Volatility - 篇一 : ram.md
-            -内存取证原理学习及Volatility - 篇二 : ram2.md
+            - 内存取证原理学习及Volatility - 篇一 : ram.md
+            - 内存取证原理学习及Volatility - 篇二 : ram2.md
         - Windows: win.md
-        - Linux : linux.md
+        - Linux : 
+            - Linux系统基础 : Linux1.md
+            - Linux应用程序 : linux2.md
+            - Linux服务器 : linux3.md
+            - 取证大师分析Linux镜像的方法 : linux4.md
+            - 题目示例 : linux5.md
         - MacOS : mac.md
         - Mobile Devices : mobile.md
         - Packet Analysis : pac.md
+        - Others : others.md
 theme:
   name: 'material'
   feature:
