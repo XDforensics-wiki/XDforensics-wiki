@@ -2,7 +2,7 @@
 
 ## 2019 美亚杯 部分题目
 
-![image-20200308221738244](..\res\linux\image-20200308221738244.png)
+![image-20200308221738244](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308221738244.png)
 
 使用PowerShell 计算文件sha1、sha256 或md5
 
@@ -14,7 +14,7 @@ Get-FileHash -Path FilePath -Algorithm md5
 
 ------
 
-![image-20200308222137205](..\res\linux\image-20200308222137205.png)
+![image-20200308222137205](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308222137205.png)
 
 NTFS ：Windows 使用的文件系统
 
@@ -26,7 +26,7 @@ XFS：日志文件系统，某些Linux 可能会使用
 
 ------
 
-![image-20200308222352308](..\res\linux\image-20200308222352308.png)
+![image-20200308222352308](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308222352308.png)
 
 检查 ~/.bash_history 文件
 
@@ -38,7 +38,7 @@ vim：一种文本编辑器
 
 ------
 
-![image-20200308222609332](..\res\linux\image-20200308222609332.png)
+![image-20200308222609332](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308222609332.png)
 
 检查文件：```/var/lib/docker/containers/镜像ID/config.v2.json``` 找到Created 字段
 
@@ -46,19 +46,19 @@ vim：一种文本编辑器
 
 ------
 
-![image-20200308223200080](..\res\linux\image-20200308223200080.png)
+![image-20200308223200080](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308223200080.png)
 
 
 
 ------
 
-![image-20200308225235092](..\res\linux\image-20200308225235092.png)
+![image-20200308225235092](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308225235092.png)
 
 检查文件 /etc/passwd
 
 ------
 
-![image-20200308225333477](..\res\linux\image-20200308225333477.png)
+![image-20200308225333477](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308225333477.png)
 
 boot.log：记录系统启动，可以排查启动时异常
 
@@ -68,15 +68,15 @@ syslog：依次记录所有内容，除身份验证相关消息【我没见过�
 
 -----
 
-![image-20200308230247549](..\res\linux\image-20200308230247549.png)
+![image-20200308230247549](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308230247549.png)
 
 使用取证大师查看Firefox 浏览记录
 
 -----
 
-![image-20200308230314495](..\res\linux\image-20200308230314495.png)
+![image-20200308230314495](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308230314495.png)
 
-![image-20200308230357359](..\res\linux\image-20200308230357359.png)
+![image-20200308230357359](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/image-20200308230357359.png)
 
 检查 ~/.bash_history 文件
 

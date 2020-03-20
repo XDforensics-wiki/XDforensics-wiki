@@ -12,7 +12,7 @@
 
 转载自 https://mp.weixin.qq.com/s/0vmNuEhsejMM0COSkfpnxw
 
-【一篇文章读懂Tor原理】 crownless [看雪学院](javascript:void(0);) *2019-01-06*
+【一篇文章读懂Tor原理】 crownless [看雪学院](https://mp.weixin.qq.com/s/0vmNuEhsejMM0COSkfpnxw) *2019-01-06*
 
 
 
@@ -28,7 +28,7 @@
 
 
 
-![img](..\res\others\howtorworks)
+![img](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/others/howtorworks.jpg)
 
 
 
@@ -48,7 +48,7 @@ Bob为了访问Alice，先访问Tor的目录服务器，获取一部分Tor节点
 
 
 
-![img](..\res\others\tor2)
+![img](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/others/tor2.jpg)
 
 
 
@@ -70,7 +70,7 @@ Bob往Alice发送数据包时，先将数据Data用keyC加密，再用keyB加密
 
 Tor 为这种匿名代理新增了一种功能：onion 网络
 
-![](..\res\others\onion.png)
+![](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/others/onion.png)
 
 访问onion域名时，tor 依然会首先经过三次代理，随后最后一次代理连接一台匿名的服务器1，这台匿名服务器再次连接一台匿名服务器2，匿名服务器2再次连接匿名服务器3，匿名服务器3最终连接onion网站。存放onion网站的服务器地址不为人知，被完全隐藏起来。
 

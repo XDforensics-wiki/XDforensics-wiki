@@ -221,7 +221,7 @@ NTP 服务使用UDP123 端口与NTP服务器通信，更新系统时间，ntp �
 >
 > 打个比方，Terminal 就像是一个人的衣服，可以有各种颜色、形状甚至功能；那么 Shell 则是这个人，你和他沟通来获得信息，并且他可以在与你沟通的过程中事先告诉你许多信息、提醒，甚至自动帮你补充你想说的话。
 >
-> ![Difference between Shell and Terminal](..\res\linux\bash.gif)
+> ![Difference between Shell and Terminal](https://raw.githubusercontent.com/XDforensics-wiki/XDforensics-wiki/master/res/linux/bash.gif)
 >
 > <center>Terminal 和 Shell 的区别和联系</center>
 >
