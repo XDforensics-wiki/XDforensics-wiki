@@ -1,5 +1,5 @@
-﻿---
-tihttps://lzwgiter.github.iotle: 内存取证原理学习及Volatility - 篇二
+---
+tihttps://float311.gitee.iotle: 内存取证原理学习及Volatility - 篇二
 date: 2020-01-29 17:50:30
 tags: 电子取证
 ---
@@ -20,28 +20,28 @@ tags: 电子取证
 　　你可以使用下面的方式从自己的实体机或虚拟机中抓取内存来自己分析，或者用上面我提供的链接来下载官方的镜像样本。工具很多，这里提供常用的三种方法：
 ### 使用VMWare
 　　如果你使用的是Vmware来做试验的话，只需要将虚拟机暂停，或者创建快照，就可以在对应目录下找到vmem文件了(虚拟内存文件)。，如下图所示：
-　　![Vmware获取内存](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/Vmware获取内存.png)
+　　![Vmware获取内存](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/Vmware获取内存.png)
 
 ### 使用DumpIt
 　　这个更无脑，免安装，直接放到对方机器，敲个y完事了。得到的结果是一个raw文件，具体用法和下载地址[看这里](http://www.secist.com/archives/2076.html)，如图就是抓取完成：
-　　![DumpIt](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/DumpIt.png)
+　　![DumpIt](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/DumpIt.png)
 　　
 ### 使用AccessData FTK Imager
 　　打开FTK，File选项中有抓取内存的功能：
-　　![FTK](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/FTK.png)
+　　![FTK](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/FTK.png)
 
 ## Windows Object And Pool Allocation (Windows对象和池分配)
 ### Windows Executive Objects (Windows 执行体对象)
 　　很多内存分析案例中都会牵扯到分析执行体对象，在windows中会有大量的C语言的数据结构，`executive objects`是**其中一类**的名称，来源是因为他们都被`Windows Object Manager`来管理(创建、维护、删除等)，`Windows Object Manager`是Windows NT内核的一个内核组件。**注意，并不是所有的数据结构都是执行体对象(executive objects)**，执行体对象是有他自己特殊的文件头的，其他数据结构是没有的；并且执行体对象是由对象管理器(Object Manager)生成的，而其他的是由其他子系统生成的，如由TCP/IP栈(tcpip.sys)生成的。
 　　下面是一些与取证有关的执行体对象类型(executive object types)，在Volatility中有相应的分析这些对象的插件：
-　　![相关对象1](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/相关对象1.png)
-　　![相关对象2](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/相关对象2.png)
+　　![相关对象1](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/相关对象1.png)
+　　![相关对象2](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/相关对象2.png)
 　　不同版本的Windows的对象类型会发生变化来支持新的特性，可以使用[Sysinternals Suite](https://docs.microsoft.com/zh-cn/sysinternals/downloads/)工具包中的`winObj`来查看(安利一下Mark Russinovich大神写的windows工具包。如下图：
-　　![winObj](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/winObj.png)
+　　![winObj](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/winObj.png)
 
 #### Object Header (windos 对象头部)
 　　执行体对象类型的一个特点就是有**一个**`object header`(_OBJECT_HEADER类型)，以及零个或多个可选的其他头部信息(optional headers)。对象的头部(Object header)会先于执行体对象的数据结构加载到内存中，同样地，可选的头部信息(optional headers)也会一种方式(in a fixed order)，先于一般头部信息(object header)加载。这样的特点的结果是什么呢？就是加载到内存中的格式是可预知的(predictable)，如下图：
-　　![ObjectHeader](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/ObjectHeader.png)
+　　![ObjectHeader](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/ObjectHeader.png)
 　　所以综上这种加载的特点，举一个栗子，比如一个File类型，它拥有一个`_FILE_OIBJECT`类型的数据结构，我们可以从这个数据结构中获取到它的`_OBJECT_HEADER`数据结构，或者反之亦然，因为这两个结构体在头部中是相邻的(上图)，而对于`_OBJECT_HEADER`这个数据结构，它的大小不会应操作系统的不同而变化。
 　　那么如何确定哪一个可选的头部信息是存在的呢？可以依靠对象头部的`InfoMask`信息。下面给出一个Win7上的对象头部的实例(自己可以在volshell中看，命令如下)。
 ```txt
@@ -64,7 +64,7 @@ In [3]: dt("_OBJECT_HEADER")
 #### Optional Headers (windos 可选对象头部)
 　　可选头部信息中包含了很多用于描述对象的元信息(metadata)，因为是可选，所以不是所有的对象都拥有它，并且**不同对象类型的实例也可能包含不同的可选头部信息**，举一个栗子：操作系统内核不会跟踪每一个进程的负载情况(quota stats)，所以空闲(Idle)和系统(system)的进程虽然都属于`_EPRROCESS`类型的对象，但是他们两个是没有`_OBJECT_HEADER_NAME_INFO`这个可选头部的。但是匿名互斥锁是有这个头部的。
 　　虽然可选头部信息很多，但是常分析的还是它的Name属性(见下图Name Info)。下面的表是64位win7操作系统上的可选头部信息，如果Bit Mask列的某一个值就是对象头部中的`InfoMask`的值的话，就说明这个头是有的。
-　　![OptionalHeader](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/OptionalHeader.png)
+　　![OptionalHeader](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/OptionalHeader.png)
 　　
 #### Object Type Objects (windows 对象类型对象)
 　　在上面的对象头部分析中，可以看到有一个参数`TypeIndex`，他代表了对象的类型，这个参数是在nt!ObTypeIndexTable(一个_OBJECT_TYPE的数组集合)中查找的索引(所以叫TypeIndex)，这个参数对内存取证有很大用处，由这个参数(_OBJECT_HEADER.TypeIndex)你就可以判定这个对象的类型是什么。举一个栗子：加入在一个进程句柄表中指向多个对象头部，为了确定这些对象都是什么类型，本来你需要去遍历上面说的表才能确定每一个对象的类型，但是现在你只需要查看每一个对象的`_OBJECT_HEADER.TypeIndex`值就可以了，通过这个索引你就可以计算出`_OBJECT_TYPE`的`Name`属性(见下面这张Win7x64的_OBJECT_TYPE的表)：
@@ -154,7 +154,7 @@ ps(): 以表格的形式打印当前的活动进程
 sc(): 显示当前上下文
 ```
 　　在开始实验前你需要在你自己的windows虚拟机上安装Windbg，这里提供[一篇教程](https://www.cnblogs.com/endenvor/p/8926688.html)我这里虚拟机是Win7x64SP1，主机是Win10。配置好以后，重启你的虚拟机，使用调试的启动项，然后开启windbg，就可以看到下面的结果：
-　　![windbg](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/windbg.png)
+　　![windbg](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/windbg.png)
 　　
 　　上述配置好了以后，再开始我们的示例：
 　　下面我们遍历一下内核空间内100个对象的对象类型，看看都是什么类型的。这里主要目的是熟悉volshell的使用以及澄清几个概念：
@@ -175,13 +175,13 @@ for i, ptr in enumerate(ptrs):
 　　这段代码的含义是首先获取内核的地址；第二行设置了类型索引表的地址，后面要使用到该表；第三行实例化了一个对象，类型为数组，储存内容类型为指针，数组大小为100；第四行开始遍历这一百个元素，将每个指针解释为一个_OBJECT_TYPE类型的变量，如果他是有效的话就将它的名称、类型信息、Key值(这些都是对象类型对象的属性)打印出来，具体这些值的含义在本节开头我们已经提到了。
 　　`ObjectTypeIndexTable`这个变量的值是类型索引表，它在windows内核是以一个全局变量导出的。打开windbg，查看这个变量的值。
 　　因为我没有学过windbg使用，所以这里只是简单使用，如果不能下载符号表的话，可以挂代理下载。使用`dd ObTypeIndexTable`命令就可以看到这个值了：
-　　![对象类型表地址](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/对象类型表地址.png)
+　　![对象类型表地址](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/对象类型表地址.png)
 　　这里我的值是`0xfffff80004039340`，下面在volshell中运行这个脚本：
 　　先设置内核空间的地址以及变量的值，可以看到这个表是有内容的(如果是空的就说明你可能找错了，我第一次就是这样)：
-　　![volshell1](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/volshell1.png)
+　　![volshell1](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/volshell1.png)
 　　
 　　之后进行遍历循环：
-　　![volshell2](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/volshell2.png)
+　　![volshell2](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/volshell2.png)
 　　在结果中可以看到这几个特点：
 ```txt
 1. 第一列总数不是100，说明不是每一个变量都是_OBJECT_TYPE类型的变量，即，他不是一个对象类型的对象
@@ -190,7 +190,7 @@ for i, ptr in enumerate(ptrs):
 4. 最后一列的key值可以看到都是4字节的，这也吻合了本节开头所描述的对象类型对象的结构
 ```
 　　如果没有windbg的话，可以使用volatility的`objtypescan`插件来得出上述脚本的结果：
-　　![objtypescan](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/objtypescan.png)
+　　![objtypescan](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/objtypescan.png)
 　　这个插件的结果和上面的结果是一样的，二者的区别是，使用nt!ObTytpeIndexTable是开始的地址开始进行扫描的，而volatility中的objtypescan插件结果的顺序是按照被发现的顺序出现的。
 　　
 #### Kernel Pool Allocations (内核池分配)
@@ -198,7 +198,7 @@ for i, ptr in enumerate(ptrs):
 
 　　和堆类似，每一个分配的块都有一个头 --- `_POOL_HEADER`，它包含着计数和调试的信息，这些信息可以帮助你找到不同块的内存所归属的驱动，而且在一定程度上可以帮助你推断数据结构的类型或者包含这些内存的对象。学习这部分除了对内存取证有很大帮助，在攻击方面也有帮助，如这篇文章[Kernel Pool Exploitation on Windows.7](http://www.mista.nu/research/MANDT-kernelpool-PAPER.pdf)所述。
 　　下面这张图是在Object Header的结构图的基础上增改的(红框是增加的)：
-　　![ObjectHeader2](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/ObjectHeader2.png)
+　　![ObjectHeader2](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/ObjectHeader2.png)
 　　可以看到在执行体对象的头部信息中除了可选头部信息外还有一个`_POOL_HEADER`的数据结构信息。在Win7中`_POOL_HEADER`这个数据结构的结构是这样的：
 ```txt
 In [2]: dt("_POOL_HEADER")
@@ -264,7 +264,7 @@ PVOID ExAllocatePoolWithTag(
 　　
 #### Pool Tag Sources (池标记源)
 　　下面这张表Volatility通过pool scanning来查找指定执行体对象的标准，第四列的最小大小都添加了_EPROCESS(对于process对象)、_OBJECT_HEADER、以及_POOL_HEADER。最后一列是对应的插件，经常会使用到。
-　　![PoolTagData](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/PoolTagData.png)
+　　![PoolTagData](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/PoolTagData.png)
 　　但是上面这些数据不是固定的，当windows有新版本出来的时候，都可能要修改，而且如果有恶意的内核驱动从池中申请空间来存放它的数据(如：配置信息,命令和控制数据包,需要隐藏的系统资源的名称等等)。所以你可能需要自己修改机制来包含新的标准。
 　　此外，注意一下上表中的第三列。关于内核池标记最不常见的一个复杂特性就是受保护位(the protected bit).当我们通过`ExFreePoolWithTag`释放一个内核池的时候,我们必须设置跟当初申请空间时所用的`ExAllocatePoolWithTag`一样的标记。这项技术是操作系统用来防止驱动程序意外释放内存而设计的.如果传递给释放函数的标记不匹配,那么系统将抛出一个异常。这对与内存取证来说有很大的影响,因为这样的话我们就需要寻找受保护的内核池标记。
 　　内核池标记中受保护的位并不是所有的内存分配都会设置,仅限与某些执行体对象类型.此外,从Windows 8和Windows Server 2012开始,貌似内核池标记中受保护位取消了。关于受保护的位更详细的信息可以参考[这篇文章](http://msmvps.com/blogs/windrvr/archive/2007/06/15/tag-you-re-it.aspx )
@@ -315,7 +315,7 @@ RaMI - tcpip.sys - Raw Socket Message Indication Tags
 平均每一个分配占用的字节数
 ```
 　　你可以[从这里](https://docs.microsoft.com/zh-cn/windows-hardware/drivers/download-the-wdk)下载DDK，在`C:\Program Files (x86)\Windows Kits\10\Tools\x64`路径就可以看到该工具。使用工具的-b选项可以以字节的格式整理数据，将最对内存敏感的标签先列出来，下图是我在win10上的结果：
-　　![poolMon](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/poolMon.png)
+　　![poolMon](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/poolMon.png)
 　　对我我这里的截图来说，我当前MmSt标签是在比特数量(Bytes列)排序中是第一个，从系统开始到截图这一刻，这个标签调用了503058次`exAllocatePoolWithTag`函数(第三列)，其中431441个池被释放了，二者的差为71,617(Diff列)，即当前有71617个池被分配，他们总共占用了324342208个字节的内存(大概324.3MB)，平均算下来一个池占了内存约为4528字节。
 　　在第一个白色的杠下面第二杠有一个CM25标签，大概占了内存16MB，CM的意思是配置管理器(Configuration Manager)，它是一个包含着windows注册表的内核组件。所有这些CM标签加起来的总和大概就是你注册表的大小，但是你不可能把他们都从内存中dump出来，因为储存在分页内存中的标签它的数据可能会映射到磁盘上，而你手头只有内存。
 　　此外，第一个白色的杠是一个File标签，它储存着一个_FILE_OBJECT数据结构，可以看到大概9900000个池被创建，它的特点是每次文件被打开或者创建的时候都会分配一个_FILE_OBJECT结构体。但是因为文件对象都相对小一点，所以可以看到实际上只有45265字节被真正分配，平均每个池399字节。
@@ -350,11 +350,11 @@ In [2]: dt("_POOL_TRACKER_TABLE")
 0x20  : PagedBytes                     ['unsigned long long']
 ```
 　　可以看到每一个跟踪器表都有一个4字节的Key属性，剩下的属性根据内存的类型分为了两类，分别告诉你了分配的数量、释放的数量、占用总字节数。虽然内存文件是一个时刻的，并不能项poolMon那样实时的更新数据，但是你至少能判断出来它在这一时刻(内存导出时)的状态，下面使用volatility的`pooltracker`插件来查询几个特定的执行体对象标签，`Np`代表不分页，`Pg`代表分页：
-　　![pooltracker](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/pooltracker.png)
+　　![pooltracker](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/pooltracker.png)
 　　从结果来看，这四个标签的对象都在非分页的内存中，从上面的结果你可以得到比如这样的信息：对于Thre标签(Thread Object)，它平均池大小为252544/(23747-22436)=1311字节。所以如果要查找所有的包含线程对象的分配池的话，你的查找约束条件就是这样的：1.是`Thre`标签；2.大小至少是1311字节。
 　　此外这里有几个使用`pooltracker`插件的小技巧：
 　　如果你要显示更详细的信息的话，可以带带上--tagfile参数，参数值是你的pooltag.txt文件，这样输出就会显示上面结果没有显示的描述以及所属驱动了。比如这样(我用的win7的pooltag.txt，他比win10的小)：
-　　![pooltracker2](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/pooltracker2.png)
+　　![pooltracker2](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/pooltracker2.png)
 　　**注意：**因为windows在XP和2003之前(包括他们)不会将这些统计数据写到池跟踪器表中，所以这个插件只适用于Vista及之后的操作系统。此外，池跟踪表也有它的限制性，他只会统计标签的使用情况结果，不会记录每一个标签的所有分配池的地址
 
 #### Building a Pool Scanner (建立一个池扫描器)
@@ -418,7 +418,7 @@ In [2]: dt("_POOL_TRACKER_TABLE")
 24                 eprocess.ExitTime or '')
 ```
 　　PSScan类继承了`common.AbstractScanCommand`父类，在第四行的scanners变量，其值时上面的`poolscan.PoolScanProcess`类，这里的值由你要寻找的对象的类型决定。7-14行生成了表的头部，就是下图中空框这一行：
-　　![psscan](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/psscan.png)
+　　![psscan](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/psscan.png)
 　　16-24行将扫描器得到的结果放入表中，就是上图中的每一行结果，他们都是_EPROCESS类型对象(在本例中)。
 　　通过继承AbstractScanCommand类，你的新的插件就拥有了用户使用不同的命令行选项来调整的能力，比如你可以用--help指令看下帮助：
 ```txt
@@ -439,11 +439,11 @@ Module PSScan
 Pool scanner for process objects
 ```
 　　比如我只扫描一段区间的：
-　　![psscan2](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/psscan2.png)
+　　![psscan2](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/psscan2.png)
 
 ##### PoolScanner Algorithm (池扫描器算法)
 　　所有池扫描器的父类---`PoolScanner`类使用了下面这个图的逻辑：
-　　![Pool-scanning algo](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/Pool-scanning algo.png)
+　　![Pool-scanning algo](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/Pool-scanning algo.png)
 　　图中的检查步骤都是前面小节学习的内容。即每到下一个地址，就检查这个地址中的池对象是否包含**标签**Proc，是的话接着判断他的**大小**是否有效，是的话接着判断是否是在不分页或空闲内存(**内存类型**)中，是的话接着使用用户**自定义的约束**进行判断，最终得到结果。
 　　对于psscan插件，如果你设置了-V选项，那么扫描器就会从内核的页表中遍历扫描所有的页，否则的话(无-V选项使用物理地址)，扫描器会从偏移地址0开始进行扫描，直到内存文件的末尾，这样可以保证结果的正确性。
 
@@ -487,7 +487,7 @@ Offset(P)          Name                PID   PPID PDB        Time created       
 > 前面提过，Windows内核会尝试将近似大小的分配放在一起，但是如果请求内存的大小超过了一个页的大小(4096字节，4KB)，那么这个块就会由一个特殊的池来分配 --- 大页池(Big Page Pool)
 
 　　在使用大页池分配的这种情况下，是不存在_POOL_HEADER结构的，所以吃标签扫描会失败，因为压根就没有标签。下图是小于4096和大于4096的内存的分结构，可以看到二者区别就是后者没有_POOL_HEADER头信息：
-　　![BigPagePool](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/BigPagePool.png)
+　　![BigPagePool](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/BigPagePool.png)
 　　但是你只需要换一个角度就可以找到这个单元了，那就是查看大页跟踪表(big page track tables)，它的条目会直接指向大页池中的对象。
 
 #### Big Page Track Tables (大页跟踪表)
@@ -503,7 +503,7 @@ In [10]: dt("_POOL_TRACKER_BIG_PAGES")
 ```
 　　第一个参数`Va`是*Virtual Address*的缩写，它的值是一个指向分配块的基址的指针，第二个参数`Key`(4字节，0xc-0x8)就是pool tag，而第三个参数`PoolType`就是内存的类型(是否分页)，最后一个参数是分配的大小。
 　　**注意：**虽然地第二个参数是poolTag，但是这个标签的位置是Va参数指向的位置，和分配的地址是完全不同的。而在对于小的分配(_POOL_TRACKER_TABLE)，它的标签是储存在分配中的。这一点很好理解，上面的对比图中后者没有_POOL_HEADER头，而tag属性是储存在_POOL_HEADER中的(红框)：
-　　![PoolHeader](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/PoolHeader.png)
+　　![PoolHeader](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/PoolHeader.png)
 
 #### Bigpools Plugin (应用于大池扫描的插件)
 　　为了从内存中得到生成大的内核池分配的信息(上述结构体信息)，Volatility为我们提供了一个叫`bigpools`的插件，下面是部分结果：
@@ -557,7 +557,7 @@ In [2]: db(0xfffff8a003c09000, length=0x1000L)
 0xfffff8a001e1b001 CM31     PagedPoolCacheAligned      0x1000L
 0xfffff8a002148001 CM31     PagedPoolCacheAligned      0x1000L
 ```
-　　![bigpools](https://lzwgiter.github.io/img/内存取证原理学习及Volatility-篇二/bigpools.png)
+　　![bigpools](https://float311.gitee.io/img/内存取证原理学习及Volatility-篇二/bigpools.png)
 　　可以看到有一个是不可读的状态，而另一个还是可读的，作者的解释是不可读的那一个可能就是我们之前提到的，数据映射到了磁盘上的例子，因为他是位于分页的内存。而另一个则已经被重新分配并且重写了，因为它的数据已经没有`hbin`这个数字签名了。
 
 #### Exploring Big Page Pools (深入搜索大页池)
