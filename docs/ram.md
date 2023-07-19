@@ -29,7 +29,7 @@ crypted e-mail messages, and non-cacheable Internet history records.
 ## Volatility简介
 　　Volatility是一个用于内存取证的框架工具，集成了多种模块，支持市面常见的操作系统。
 　　下面简单浏览一下大概界面和常用模块：
-　　![界面](https://lzwgiter.github.io/img/内存取证原理学习及Volatility - 篇一/界面.png)
+　　![界面](https://lzwgiter.github.io/img/内存取证原理学习及Volatility%20-%20篇一/界面.png)
 　　这是volatility的主页面，也有GUI的exe版本，但是没有Python版的扩展性强(如集成mimikatz)
 　　下面列出常用的模块：
 ```txt
